@@ -29,7 +29,7 @@ function createGrid(size) {
     parentcontainer.querySelectorAll(".row").forEach((row) => {
         row.querySelectorAll(".column").forEach((column) => {
             column.addEventListener("mouseover", () => {
-                column.style.backgroundColor = "black";
+                column.style.backgroundColor = randomizeColors();
             });
             column.addEventListener("mouseleave", () => {
                 column.style.backgroundColor = "white";
@@ -38,6 +38,10 @@ function createGrid(size) {
     });
 };
 
+function randomizeColors() {
+    randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return "#" + randomColor;
+}
 
 
 for (let i = 0; i < 4; i++) {
@@ -55,7 +59,7 @@ for (let i = 0; i < 4; i++) {
 parentcontainer.querySelectorAll(".row").forEach((row) => {
     row.querySelectorAll(".column").forEach((column) => {
         column.addEventListener("mouseover", () => {
-            column.style.backgroundColor = "black";
+            column.style.backgroundColor = randomizeColors();
         });
         column.addEventListener("mouseleave", () => {
             column.style.backgroundColor = "white";
