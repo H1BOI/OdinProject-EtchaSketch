@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    border: 1px solid;
+    border-color: black;
+    width: 40rem;
+    height: 40rem;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+}
+
+.column {
+    flex: 1;
+    border: 1px solid;
+    border-color: black;
+}
