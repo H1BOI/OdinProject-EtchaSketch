@@ -25,7 +25,20 @@ function createGrid(size) {
             row.appendChild(column);
         };
     };
+
+    parentcontainer.querySelectorAll(".row").forEach((row) => {
+        row.querySelectorAll(".column").forEach((column) => {
+            column.addEventListener("mouseover", () => {
+                column.style.backgroundColor = "black";
+            });
+            column.addEventListener("mouseleave", () => {
+                column.style.backgroundColor = "white";
+            });
+        });
+    });
 };
+
+
 
 for (let i = 0; i < 4; i++) {
     const row = document.createElement("div");
