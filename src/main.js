@@ -13,6 +13,19 @@ button.addEventListener("click", () => {
 });
 document.body.insertBefore(button, parentcontainer);
 
+function hoverEffect() {
+    parentcontainer.querySelectorAll(".row").forEach((row) => {
+        row.querySelectorAll(".column").forEach((column) => {
+            column.addEventListener("mouseover", () => {
+                column.style.backgroundColor = randomizeColors();
+            });
+            column.addEventListener("mouseleave", () => {
+                column.style.backgroundColor = "white";
+            });
+        });
+    });
+};
+
 function createGrid(size) {
     for (let i = 0; i < size; i++) {
         const row = document.createElement("div");
@@ -26,16 +39,7 @@ function createGrid(size) {
         };
     };
 
-    parentcontainer.querySelectorAll(".row").forEach((row) => {
-        row.querySelectorAll(".column").forEach((column) => {
-            column.addEventListener("mouseover", () => {
-                column.style.backgroundColor = randomizeColors();
-            });
-            column.addEventListener("mouseleave", () => {
-                column.style.backgroundColor = "white";
-            });
-        });
-    });
+    hoverEffect();
 };
 
 function randomizeColors() {
@@ -43,26 +47,4 @@ function randomizeColors() {
     return "#" + randomColor;
 }
 
-
-for (let i = 0; i < 4; i++) {
-    const row = document.createElement("div");
-    row.classList.add("row");
-    parentcontainer.appendChild(row);
-
-    for (let j = 0; j < 4; j++) {
-        const column = document.createElement("div");
-        column.classList.add("column");
-        row.appendChild(column);
-    }
-}
-
-parentcontainer.querySelectorAll(".row").forEach((row) => {
-    row.querySelectorAll(".column").forEach((column) => {
-        column.addEventListener("mouseover", () => {
-            column.style.backgroundColor = randomizeColors();
-        });
-        column.addEventListener("mouseleave", () => {
-            column.style.backgroundColor = "white";
-        });
-    });
-});
+createGrid(4);
